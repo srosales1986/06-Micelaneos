@@ -1,0 +1,31 @@
+<div class="main-container">
+
+<div [ngClass]="alerta" class="alert" role="alert">
+    <strong>Well done! </strong> You successfully read this important alert message.
+</div>
+
+<button type="button" (click)="alerta = 'alert-info'" class="btn btn-info mr-1">Info</button>
+<button type="button" (click)="alerta = 'alert-success'" class="btn btn-success">Success</button>
+
+<br><br>
+
+<h3 [ngClass]="{ 'text-danger': prop.danger, 'text-info': !prop.danger }">Angular 9</h3>
+<button type="button" class="btn" [ngClass]="{ 'btn-info': !prop.danger, 'btn-danger': prop.danger }" (click)="prop.danger=!prop.danger">Change</button>
+<br><br>
+
+<h3>Proceso Asíncrono</h3>
+
+<button [disabled]="loading" type="button" class="btn btn-primary" name="button" (click)="ejecutar()">
+    <i class="fa" [ngClass]="{ 'fa-save': !loading, 'fa-sync fa-spin': loading }"></i>
+    <span *ngIf="!loading"> Guardar cambios </span>
+    <span *ngIf="loading"> Loading... </span>
+</button>
+<br><br>
+<p [appResaltado]="'orange'">
+    Texto modificado con directiva personalizada.
+</p>
+
+<br><br>
+<app-ng-switch></app-ng-switch>
+
+</div>
